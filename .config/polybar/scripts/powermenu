@@ -1,0 +1,12 @@
+#!/bin/bash
+
+## Created By Aditya Shakya
+
+MENU="$(rofi -theme-str '#inputbar { enabled: false; }' -sep "|" -dmenu -i -p ' ? ' -location 3 -yoffset 28 -xoffset -6 -width 5 -hide-scrollbar -line-padding 0 -padding 0 -lines 4 <<< " | | | ")"
+
+            case "$MENU" in
+                *) light-locker-command -l;;
+                *) systemctl suspend;;
+                *) systemctl reboot ;;
+                *) systemctl -i poweroff
+            esac

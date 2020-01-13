@@ -1,0 +1,210 @@
+﻿# bspwm hotkeys
+#
+# Cleanly quit bspwm
+super + shift + Escape
+	bspc quit 1 && pkill polybar
+
+super + Escape
+	~/.config/polybar/scripts/powermenu
+
+
+# Window manipulation
+# ______________
+
+# Close window
+super + q
+	bspc node -c
+
+# Kill window
+super + shift + q
+	bspc node -k
+
+# Toggle tiling mode of window
+super + shift + t
+	bspc node -t {pseudo_tiled,tiled}
+super + t
+	{bspc node -t floating && window-placer $(bspc query -T -d | grep -o '"state":"floating"' | wc -l),bspc node -t tiled}
+# Force all windows of the desktop to tile
+super + ctrl + t
+	bspcp tile
+# Force all windows of the desktop to float and arrange them
+super + ctrl + shift + t
+	bspcp float
+
+# Toggle fullscreen
+super + shift + f
+	bspc node -t {fullscreen,tiled}
+
+# Make window sticky
+super + o
+	windowoptions
+
+### Mapped (minimixed) windows
+super + i
+	whid dmenu
+
+#
+# Window moving and splitting
+# ______________
+
+# Autopresel (split window in its largest dimension)
+super + ctrl + space
+	auto-presel
+
+# Presel window for splitting in certain direction
+super + ctrl + {h,j,k,l}
+	bspc node -p \~{west,south,north,east}
+
+# Presel the desktop for splitting in certain direction
+	# bspc node @/ -p \~{west,south,north,east}
+
+# Set splitting ratio of windows
+super + shift + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Move current window to largest space or preselected area if there is one.
+super + Return
+    windowpromoter
+
+# Create a new "master area", splitting the whole desktop instead of just windows.
+super + ctrl + Return
+	bspc node -n @/
+
+# go (Shift=move) to desktop (and focus the monitor that the desktop is located on. Bspwm style)
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} ^{1-9,10}
+
+# move to desktop and focus the monitor that the desktop is located on.
+super + ctrl + {1-9,0}
+		id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
+
+# cycle windows
+super + {_,shift + }Tab
+    bspc node -f {next,prev}
+
+# Go to specific window
+super + ctrl + Tab
+		WindowSelector
+
+#Focus windows by direction, works with multihead
+super +  {h,j,k,l}
+  	focusmover {west,south,north,east}
+
+# Move tiled windows. Moving a tiled window to
+# preselected one moves into preselection instead.
+# Moving out of the screen should move the window to next monitor if possible
+super + m : {h,j,k,l}
+	windowgrabber {west,south,north,east}
+
+#resize windows
+super + r : {h,j,k,l}
+	bspwm_resize.sh {west,south,north,east}
+
+#
+# Layout manipulation/desktop level controls
+# ______________
+
+# Toggle monocle layout
+super + f
+	bspc desktop -l next
+
+# Balance tree
+super + b
+	bspc node @/ -B
+
+# Balance brother node. If you do this on biggest window of the desktop, it usually means balancing all windows with except the biggest.
+super + alt + b
+	bspc node @brother -B
+
+# Undo balancing (equalize windows)
+super + ctrl + b
+	bspc node @/ -E
+
+# Toggle automatic balancing of windows
+super + ctrl + shift + b
+	euclid_balancer
+
+# Mirror and flip leaves of tree
+super + shift +{comma,period}
+	bspc node @/ -F {horizontal,vertical}
+
+# Rotate leaves of tree
+super + {comma,period}
+	bspc node @/ -R {90,270}
+
+#
+# spawn programs
+#
+
+# run applications
+
+# Triggered by just tapping super
+super + d
+	rofi -show
+
+F10
+	.config/polybar/scripts/hidetray.sh
+
+super + F1
+	default-terminal
+
+super + F2
+	$BROWSER
+
+#super + F3
+
+
+#Lock the screen
+super + x
+		light-locker-command -l
+
+Print
+	scrot
+
+
+#
+# Media keys
+#
+
+XF86AudioRaiseVolume
+	pulseaudio-ctl up
+
+XF86AudioLowerVolume
+	pulseaudio-ctl down
+
+XF86AudioMute
+	pulseaudio-ctl mute
+
+XF86MonBrightnessDown
+	light -U 5
+
+XF86MonBrightnessUp
+ 	light -A 5
+
+XF86Sleep
+  light-locker-command -l
+
+XF86Suspend
+  light-locker-command -l
+
+XF86PowerOff
+  light-locker-command -l
+
+
+
+# make sxhkd reload its configuration files:
+super + ctrl + F1
+	pkill -USR1 -x sxhkd
+
+# In case bspwmrc fails to execute/you wish have plugged in a new monitor
+super + ctrl + F2
+	bspwmrc
+
+# Toggle compositing
+super + ctrl + space
+	{pkill compton ,\
+	compton -b }
+
+# Remove receptacles
+super + BackSpace
+  for i in $(bspc query -N -n .leaf.!window.local); do bspc node $i -k; done

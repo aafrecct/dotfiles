@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Created By Aafrecc Taarctil
+## A rofi menu with four different bspwm options for the current window.
+
+WINOPTIONS="$(rofi -theme-str '#inputbar { enabled: false; }' -sep "|" -dmenu -i -p 'Window Options' -width 20 -hide-scrollbar -lines 4 <<< "Hide|Pin|Lock|Close")"
+
+            case "$WINOPTIONS" in
+                Hide) whid hide;;
+                Pin) bspc node -g sticky;;
+                Lock) bspc node -g locked;;
+                Close) bspc node -c
+            esac
