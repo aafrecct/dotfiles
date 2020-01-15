@@ -17,4 +17,4 @@ exec_files = [i for i in listdir('./scripts')]
 print(dot_files)
 
 for i in dot_files:
-    run(['ln', '-srf', './{0}'.format(i), '~/'.format(i)])
+    run(['ln', '-srf', './{0}'.format(i), '~/{0}'.format(i)])
