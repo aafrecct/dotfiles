@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-scale '/home/aafrecct/Pictures/Wallpapers/wallpaper-mat-nord-1.png' 
