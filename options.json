@@ -1,0 +1,18 @@
+{
+  "packages":[
+    "light-locker",
+    "lightdm-webkit2-greeter",
+    "rofi",
+    "polybar",
+    "zsh",
+    "feh",
+    "kitty",
+    "bspwm",
+    "sxhkd",
+    "ranger",
+    "compton"
+  ],
+  "needed_dirs":[
+    ".polybar"
+  ]
+}
