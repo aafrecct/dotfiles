@@ -61,6 +61,7 @@ alias cp="cp -i"                                                # Confirm before
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
+alias cd..="cd .."
 
 # Theming section
 autoload -U compinit colors zcalc

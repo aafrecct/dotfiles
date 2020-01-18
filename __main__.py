@@ -63,18 +63,31 @@ if in_home and run('whoami', capture_output=True).stdout.decode('UTF-8') == 'roo
     # Check for necesary dirs
     for i in options['needed_dirs']:
         if not path.exists(i):
-            print('Please create the following directory: ' + current_dir + i)
+            if i[0] == '.':
+                print('Please create the following directory: ' + current_dir + i[1:])
+            else:
+                print('Please create the following directory: ' + i)
+            exit()
 
     # Check for the files.
+    for i in options['needed_files']:
+        if not path.exists(i):
+            print('A file appears to be missing: ' + i)
+            exit()
     for i in config_files:
         if i in config_dir and not path.islink('.config/' + i):
             if input("Delete .config/" + i + "? [Y/n] ").lower() != n:
                 run(['rm', '-r', '.config/' + i])
 
     # Replace the links.
-    run(['ln', '-srf', folder + 'files/*'])
+    for i in config_files:
+        run(['ln', '-srf', folder + 'files/.config/{0}'.format(i), '.config/'])
+    for i in dot_files:
+        run(['ln', '-srf', folder + 'files/{0}'.format(i)])
     for i in exec_files:
         run(['ln', '-srf', folder + 'scripts/{0}'.format(i), '/bin/{0}'.format(i)])
+
+    print('Success!')
 
 elif in_home:
     print('Run this script with sudo so that symlinks can be created in /bin/.')

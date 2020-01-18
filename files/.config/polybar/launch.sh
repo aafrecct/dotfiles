@@ -11,5 +11,4 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bar1 and bar2
 polybar tray -c ~/.config/polybar/config-tray.ini &
 ln -sf /tmp/polybar_mqueue.$! ~/.polybar/traybar
-~/.config/polybar/scripts/hidetray.sh
 polybar top -c ~/.config/polybar/config-top.ini &

@@ -3,6 +3,7 @@
 
 ##Polybar
 .config/polybar/launch.sh
+.config/polybar/scripts/hidetray.sh
 
 ## Load appearance settings
 xsetroot -cursor_name left_ptr &

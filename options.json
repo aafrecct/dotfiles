@@ -13,6 +13,10 @@
     "compton"
   ],
   "needed_dirs":[
-    ".polybar"
+    "./.polybar",
+    "/usr/share/lightdm-webkit/themes/lightdm-webkit-theme-aether"
+  ],
+  "needed_files":[
+    "./.face"
   ]
 }
