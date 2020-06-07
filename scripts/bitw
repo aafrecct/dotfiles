@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+AAA=$'Usage: \nbitw unlock <password>    or\nbitw password <service>'
+
+case $1 in
+unlock)
+	bw unlock --raw $2
+	;;
+password)
+	bw get password $2 | xclip -selection clipboard
+	;; 
+*)
+  echo "$AAA"
+  ;;
+esac

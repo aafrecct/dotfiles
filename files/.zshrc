@@ -55,13 +55,15 @@ bindkey '^H' backward-kill-word                                 # delete previou
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 ## Alias section
-alias getbwpass="sudo xclip -selection clipboard /home/aafrecct/Documents/BiWar.txt"
+#alias bwunlock="export ${$(bw unlock $(sudo cat Documents/BiWar.txt) | grep export):2}" 
 alias rbwifi="sudo ip link set wlp1s0 down && sudo ip link set wlp1s0 up"
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
 alias cd..="cd .."
+alias vim="nvim"
+alias vi="nvim"
 
 # Theming section
 autoload -U compinit colors zcalc

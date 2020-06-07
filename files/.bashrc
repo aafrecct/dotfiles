@@ -137,3 +137,5 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+export QSYS_ROOTDIR="/home/aafrecct/.cache/yay/quartus-free/pkg/quartus-free/opt/altera/19.1/quartus/sopc_builder/bin"

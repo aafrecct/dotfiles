@@ -76,7 +76,7 @@ super + {_,shift + }{1-9,0}
 
 # move to desktop and focus the monitor that the desktop is located on.
 super + ctrl + {1-9,0}
-		id=$(bspc query -N -n); bspc node -d ^{1-9}; bspc node -f ${id}
+		id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}
 
 # cycle windows
 super + {_,shift + }Tab
@@ -146,17 +146,13 @@ F10
 	.config/polybar/scripts/hidetray.sh
 
 super + F1
-	default-terminal
+      	default-terminal
 
 super + F2
-	$BROWSER
+       	$BROWSER
 
-#super + F3
-
-
-#Lock the screen
-super + x
-		light-locker-command -l
+super + F3
+        Emacs
 
 Print
 	scrot
