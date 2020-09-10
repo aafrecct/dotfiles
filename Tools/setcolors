@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# This script is very prone to breakage
+
+# Exit if argument is not "dark" or "light".
+if [ $1 != 'light' ] && [ $1 != 'dark' ]; then
+	echo "Argument must me 'light' or 'dark'."
+	exit 1
+fi
+
+# Set the names of things.
+XFCETN="Qogir-win-$1"
+if [ "$1" = "light" ]; then
+	ICONTN="Qogir"
+	WALLPPATH=~/Pictures/Wallpapers/lowpoly-iceberg-day.png
+	SEDSUB='s/night/day/g'
+elif [ "$1" = "dark" ]; then
+	ICONTN="Qogir-dark"
+	WALLPPATH=~/Pictures/Wallpapers/lowpoly-iceberg-night.png
+	SEDSUB='s/day/night/g'
+fi
+
+# Change kitty's colors.
+ln -srf ~/Dotfiles/Colors/kitty/$1 ~/.config/kitty/colors.conf
+kitty @ set-colors --all --configured ~/.config/kitty/kitty.conf
+
+# Change xfce appearance settings.
+xfconf-query -c xsettings -p /Net/ThemeName -s $XFCETN
+xfconf-query -c xsettings -p /Net/IconThemeName -s $ICONTN
+
+# Change xfce desktop wallpaper.
+xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP/workspace0/last-image -s $WALLPPATH
+
+# Change wallpaper with feh.
+sed -i -e $SEDSUB ~/.fehbg
+~/.fehbg
+
+if [ $DESKTOP_SESSION = "bspwm" ]; then
+	~/Dotfiles/Colors/yabar/$1
+fi
+
+ln -sfr ~/Dotfiles/Colors/nvim/$1 ~/.config/nvim/colors.vimrc 

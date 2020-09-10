@@ -1,3 +1,0 @@
-#!/bin/bash
-
-export ${$(bw unlock $(sudo cat Documents/BiWar.txt) | grep export):2}

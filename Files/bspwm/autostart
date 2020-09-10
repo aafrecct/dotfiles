@@ -1,0 +1,37 @@
+# run_once is a script in /usr/bin that prevents running script if it is running already
+
+# Start Bar. (yabar)
+yabar &
+
+# Wallpaper.
+feh --bg-fill Pictures/Wallpapers/lowpoly-iceberg-day.png
+
+# Automount removable media
+devmon &
+
+# Powersaving options
+xset s off &
+xset s noblank &
+xset s noexpose &
+xset c on &
+xset -dpms &
+xbacklight -set 15 &
+
+# Run screenlock when suspending
+light-locker &
+
+# Make monitor settings persist between reboots
+eval $(awk -F'=' '/Exec=/ {print $2}' ~/.config/autostart/lxrandr-autostart.desktop) &
+
+# Notify about package updates
+update-checker 7200 &
+
+# Polkit agent
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+
+# Gnome keyring
+gnome-keyring-daemon &
+thunar --daemon &
+
+# Notification daemon.
+dunst &

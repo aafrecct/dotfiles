@@ -1,0 +1,36 @@
+# History:
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+# Options:
+setopt autocd extendedglob PROMPTSUBST 
+unsetopt beep nomatch notify
+
+# Keybindings:
+bindkey -e
+
+# Add pure prompt to fpath:
+fpath+=$HOME/Dotfiles/Files/zshplugins/pure
+
+# Load modules:
+autoload -Uz compinit; compinit
+autoload -U promptinit; promptinit
+
+# Prompt:
+prompt pure
+
+# Plugins:
+ZSHPLUGDIR=$HOME/Dotfiles/Files/zshplugins
+source $ZSHPLUGDIR/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+
+# Other:
+zstyle :compinstall filename '/home/bmcaos/.zshrc'
+
+# Aliases:
+alias :x="cd && clear"
+alias ls="ls --color=auto"
+alias la="ls -lah"
+alias cp="cp -i"
+alias rm="rm -I"
+alias vim="nvim"

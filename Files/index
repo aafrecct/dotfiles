@@ -1,0 +1,12 @@
+bashrc;~/bashrc
+bspwm;~/.config/bspwm
+compton.conf;~/.config/compton.conf
+dunst;~/.config/dunst
+kitty;~/.config/kitty
+polybar;~/.config/polybar
+ranger;~/.config/ranger
+rofi;~/.config/rofi
+sxhkd;~/.config/sxhkd
+xresources;~/.Xresources
+yabar;~/.config/yabar
+zshrc;~/.zshrc

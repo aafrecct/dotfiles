@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/bmcaos/Documents/Code/ABeegTruthOrDare/.git'
+let g:netrw_dirhist_7='/home/bmcaos/Documents/Code/ABeegTruthOrDare/translations/en'
+let g:netrw_dirhist_6='/home/bmcaos/Documents/Code/ABeegTruthOrDare/translations'
+let g:netrw_dirhist_5='/home/bmcaos/Dotfiles/Files'
+let g:netrw_dirhist_4='/home/bmcaos/Dotfiles/Files/kitty'
+let g:netrw_dirhist_3='/home/bmcaos/Documents/Code/TheBeegTruthDare'
+let g:netrw_dirhist_2='/home/bmcaos/.config/kitty'
+let g:netrw_dirhist_1='/home/bmcaos/.vim'
+let g:netrw_dirhist_0='/home/bmcaos/Dotfiles/Files/nvim/plugged/base16-vim'
+let g:netrw_dirhist_9='/home/bmcaos/Dotfiles/Files/nvim/plugged'
