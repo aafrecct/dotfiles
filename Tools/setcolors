@@ -12,12 +12,12 @@ fi
 XFCETN="Qogir-win-$1"
 if [ "$1" = "light" ]; then
 	ICONTN="Qogir"
-	WALLPPATH=~/Pictures/Wallpapers/lowpoly-iceberg-day.png
-	SEDSUB='s/night/day/g'
+	WALLPPATH=~/Pictures/Wallpapers/light.png
+	SEDSUB='s/dark/light/g'
 elif [ "$1" = "dark" ]; then
 	ICONTN="Qogir-dark"
-	WALLPPATH=~/Pictures/Wallpapers/lowpoly-iceberg-night.png
-	SEDSUB='s/day/night/g'
+	WALLPPATH=~/Pictures/Wallpapers/dark.png
+	SEDSUB='s/light/dark/g'
 fi
 
 # Change kitty's colors.
@@ -28,15 +28,20 @@ kitty @ set-colors --all --configured ~/.config/kitty/kitty.conf
 xfconf-query -c xsettings -p /Net/ThemeName -s $XFCETN
 xfconf-query -c xsettings -p /Net/IconThemeName -s $ICONTN
 
-# Change xfce desktop wallpaper.
+# Change xfce desktop wallpaper. (Not Working)
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitoreDP/workspace0/last-image -s $WALLPPATH
+
+# Change rofi theme.
+sed -i -e $SEDSUB ~/.config/rofi/config.rasi
 
 # Change wallpaper with feh.
 sed -i -e $SEDSUB ~/.fehbg
 ~/.fehbg
 
+# Change yabar color
 if [ $DESKTOP_SESSION = "bspwm" ]; then
 	~/Dotfiles/Colors/yabar/$1
 fi
 
+# Change vim colors.
 ln -sfr ~/Dotfiles/Colors/nvim/$1 ~/.config/nvim/colors.vimrc 

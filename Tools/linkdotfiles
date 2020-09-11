@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DOTFILESPATH = "~/Dotfiles"
+
+for LINE in $(cat $DOTFILESPATH/Files/index); do
+    SPLIT = sed -E "s/;/\n/g" "$DOTFILESPATH/Files/$LINE" | head -1
+    DESTINATION = sed -E "s/;/\n/g" "$DOTFILESPATH/Files/$LINE" | tail -1
+    ln -srf "$DOTFILESPATH/Files/$ORIGIN" "$DESTINATION"

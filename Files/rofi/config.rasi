@@ -1,0 +1,14 @@
+configuration {
+	modi: "drun,run,window,ssh";
+	lines: 7;
+	font: "Source Code Pro Semibold 12";
+	bw: 0;
+	padding: 0;
+	show-icons: false;
+	matching: "fuzzy";
+	line-margin: 0;
+	line-padding: 10;
+	separator-style: "none";
+	hide-scrollbar: true;
+}
+@import "/home/bmcaos/.local/share/rofi/themes/base16-google-light.rasi"
