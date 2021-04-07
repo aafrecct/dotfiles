@@ -29,10 +29,11 @@ zstyle :compinstall filename '/home/bmcaos/.zshrc'
 
 # Aliases:
 alias :x="cd && clear"
-alias ls="ls --color=auto"
-alias la="ls -lah"
+alias ls="ls --group-directories-first --color=auto"
+alias la="ls -lAh"
 alias cp="cp -i"
 alias rm="rm -I"
 alias vim="nvim"
 alias vi="nvim"
 alias clipboard="xclip -selection clipboard"
+alias sctl="systemctl"

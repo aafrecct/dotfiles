@@ -84,7 +84,7 @@ super + ctrl + Tab
 		WindowSelector
 
 #Focus windows by direction, works with multihead
-super +  {h,j,k,l}
+super + {h,j,k,l}
   	focusmover {west,south,north,east}
 
 # Move tiled windows. Moving a tiled window to

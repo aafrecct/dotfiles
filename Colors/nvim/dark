@@ -1,5 +1,5 @@
 " This relies on "chriskempson/base16-vim"
 
 set termguicolors
-colorscheme base16-google-dark
+colorscheme base16-gruvbox-dark-medium
 

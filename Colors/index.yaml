@@ -1,0 +1,23 @@
+# The format should be:
+# folder:
+#   - type
+#   - file_path
+# 
+# Where type is one of:
+#   - "executable": Folder should have one bash script called "change-color"
+#                   that takes two arguments:
+#                       - One of the color schemes in 'schemes'.
+#                       - The file path given.
+#   - "link": Folder should have one file called "template"
+
+kitty:
+    - "l"
+    - "../Files/kitty/colors.conf"
+
+nvim:
+    - "e"
+    - "../Files/nvim/colors.vimrc"
+
+xresources:
+    - "l"
+    - "~/.xresources"

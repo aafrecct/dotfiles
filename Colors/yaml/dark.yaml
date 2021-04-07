@@ -1,0 +1,20 @@
+scheme: "Gruvbox dark, medium"
+author: "Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)"
+background: "282828"
+foreground: "d5c4a1"
+base00: "282828" # Default BG   ----
+base01: "3c3836" # Lighter BG   ---
+base02: "504945" # Selection BG --
+base03: "665c54" # Comments     -
+base04: "bdae93" # Dark FG      +
+base05: "d5c4a1" # Default FG   ++
+base06: "ebdbb2" # Light FG     +++
+base07: "fbf1c7" # Light BG     ++++
+base08: "fb4934" # red
+base09: "fe8019" # orange
+base0A: "fabd2f" # yellow
+base0B: "b8bb26" # green
+base0C: "8ec07c" # aqua/cyan
+base0D: "83a598" # blue
+base0E: "d3869b" # purple
+base0F: "d65d0e" # brown

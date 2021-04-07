@@ -4,7 +4,10 @@
 yabar &
 
 # Wallpaper.
-feh --bg-fill Pictures/Wallpapers/lowpoly-iceberg-day.png
+~/.fehbg
+
+# XFCE Power Manager
+xfce4-power-manager
 
 # Automount removable media
 devmon &

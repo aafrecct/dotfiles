@@ -11,6 +11,7 @@ Plug 'tpope/vim-surround'
 Plug 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'aafrecct/m88k.vim'
 
 call plug#end()
 
@@ -20,7 +21,7 @@ source ~/.config/nvim/colors.vimrc
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set relativenumber
+set number relativenumber
 set modelines=0
 set encoding=utf-8
 set autoindent

@@ -1,7 +1,0 @@
-#/bin/sh
-
-sed -i -e 's/background-color-argb: 0xff1d1f21/background-color-argb: 0xfff0f0f0/g' ~/.config/yabar/yabar.conf
-sed -i -e 's/foreground-color-rgb: 0xf0f0f0/foreground-color-rgb: 0x1d1f21/g' ~/.config/yabar/yabar.conf
-
-pkill yabar
-yabar &

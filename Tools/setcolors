@@ -3,25 +3,38 @@
 # This script is very prone to breakage
 
 # Exit if argument is not "dark" or "light".
-if [ $1 != 'light' ] && [ $1 != 'dark' ]; then
-	echo "Argument must me 'light' or 'dark'."
+if [ $1 != 'light' ] && [ $1 != 'dark' ] && [ $1 != 'switch' ]; then
+	echo "Argument must me 'light' or 'dark' or 'switch'."
 	exit 1
 fi
 
+let colormode=$1
+
+if [ "$1" = "switch" ]; then
+    if $DARKMODE; then
+        colormode="light"
+    else
+        colormode="dark"
+    fi
+fi
+
+DARKMODE=[ $colormode = 'dark' ]
+export DARKMODE
+
 # Set the names of things.
-XFCETN="Qogir-win-$1"
-if [ "$1" = "light" ]; then
+XFCETN="Qogir-win-$colormode"
+if [ "$colormode" = "light" ]; then
 	ICONTN="Qogir"
 	WALLPPATH=~/Pictures/Wallpapers/light.png
 	SEDSUB='s/dark/light/g'
-elif [ "$1" = "dark" ]; then
+elif [ "$colormode" = "dark" ]; then
 	ICONTN="Qogir-dark"
 	WALLPPATH=~/Pictures/Wallpapers/dark.png
 	SEDSUB='s/light/dark/g'
 fi
 
 # Change kitty's colors.
-ln -srf ~/Dotfiles/Colors/kitty/$1 ~/.config/kitty/colors.conf
+ln -srf ~/Dotfiles/Colors/kitty/$colormode ~/.config/kitty/colors.conf
 kitty @ set-colors --all --configured ~/.config/kitty/kitty.conf
 
 # Change xfce appearance settings.
@@ -40,8 +53,8 @@ sed -i -e $SEDSUB ~/.fehbg
 
 # Change yabar color
 if [ $DESKTOP_SESSION = "bspwm" ]; then
-	~/Dotfiles/Colors/yabar/$1
+	~/Dotfiles/Colors/yabar/$colormode
 fi
 
 # Change vim colors.
-ln -sfr ~/Dotfiles/Colors/nvim/$1 ~/.config/nvim/colors.vimrc 
+ln -sfr ~/Dotfiles/Colors/nvim/$colormode ~/.config/nvim/colors.vimrc 
