@@ -10,6 +10,9 @@ unsetopt beep nomatch notify
 # Keybindings:
 bindkey -e
 
+# Add local bin to path:
+PATH+=:$HOME/.local/bin
+
 # Add pure prompt to fpath:
 fpath+=$HOME/Dotfiles/Files/zshplugins/pure
 
@@ -37,3 +40,15 @@ alias vim="nvim"
 alias vi="nvim"
 alias clipboard="xclip -selection clipboard"
 alias sctl="systemctl"
+
+# Nim
+export PATH=/home/bmcaos/.nimble/bin:$PATH
+
+# @begin(40368552)@ - Do not edit these lines - added automatically!
+# You should customize CIAOPATH before this chunk if you place bundles in
+# places other than ~/.ciao
+export PATH=/home/bmcaos/.ciao/bin:$PATH
+if [ -x /home/bmcaos/.ciaoroot/v1.21.0-m1/build/bin/ciao-env ] ; then
+  eval "$(/home/bmcaos/.ciaoroot/v1.21.0-m1/build/bin/ciao-env --sh)"
+fi
+# @end(40368552)@ - End of automatically added lines.

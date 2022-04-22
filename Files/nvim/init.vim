@@ -5,13 +5,18 @@ let g:python3_host_prog = '/usr/bin/python3'
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'chriskempson/base16-vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim'
 let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/neco-syntax'
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'aafrecct/m88k.vim'
+Plug 'zah/nim.vim'
 
 call plug#end()
 
@@ -29,4 +34,3 @@ syntax enable
 set autoread
 set smartcase
 set undofile
-

@@ -134,10 +134,10 @@ super + d
 	rofi -show
 
 super + F1
-	kitty
+	alacritty
 
 super + F2
-       	firefox
+    firefox
 
 Print
 	scrot
